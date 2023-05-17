@@ -1,0 +1,10 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: default
+  name: client-go-role
+rules:
+  #for deployment apigroups is apps, and for pod it is ""
+  - apiGroups: ["apps", ""]
+    resources: ["pods", "deployments"]
+    verbs: ["get", "watch", "list"]

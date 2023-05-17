@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: client-go-deployment
+  name: client-go-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: client-go
+  template:
+    metadata:
+      labels:
+        app: client-go
+    spec:
+      containers:
+        - image: souravbiswassanto/client-go:0.1.1
+          name:  client-go-pod
+          resources: {}
